@@ -1,8 +1,15 @@
 # Ukraine Grid-Scale Battery Storage: A World Bank–Style Shadow Appraisal
 
 ## Question
-Should an investor build a grid-scale battery (BESS) in Ukraine, and if so,
-which configuration and financing make it bankable? What is it worth to Ukraine?
+Is a grid-scale battery (BESS) in Ukraine worth building, and does adding
+gas-engine cogeneration (CHP) create value beyond what each delivers alone —
+for an investor and for Ukraine?
+
+1. BESS alone — is it viable on its own? (Phase 1, criteria below)
+2. CHP alone — is it viable on its own? (Phase 2, criteria set before analysis)
+3. Hybrid — does BESS + CHP create synergy, i.e. more value than both built separately?
+4. Financing & economics — what financing makes the best option bankable,
+   and what is it worth to Ukraine?
 
 ## Screening criteria (set 2026-11-06, before any analysis)
 1. Payback (realistic strategy, DTEK-level CAPEX ~$390/kWh, best of 2h/4h):
