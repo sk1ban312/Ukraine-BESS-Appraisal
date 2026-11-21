@@ -13,6 +13,7 @@ NBU official rate of 20 Nov 2026: 45.05 UAH/USD, 49.53 UAH/EUR [11].
 | Efficiency · life · availability | 85% round trip · 15 years · 97% |
 | Operating scenarios for revenue analysis (03) | A: arbitrage only · B: aFRR only · C: 10 MW aFRR + 10 MW arbitrage |
 | Calendar | Construction in 2027 (~8 months, DTEK precedent) = year 0; commercial operation from 1 Jan 2028 |
+| E&S risk (World Bank ESF) | Moderate (expected), see J |
 
 The Concept Note's indicative CAPEX (≈ USD 17 million) is replaced by USD 19.73 million:
 physical protection and the grid connection fee (withdrawal plus release capacity) are added;
@@ -23,7 +24,7 @@ US sales tax is removed.
 |---|---|---|
 | Technology | LFP (lithium iron phosphate) battery in containers; reference product Fluence Gridstack | Used in DTEK's 200 MW / 400 MWh portfolio in Ukraine [4][5] |
 | Size | 20 MW / 40 MWh usable (2-hour) | DTEK's six sites are 20–50 MW, 2-hour [4] |
-| Site | Kyiv oblast, rural area of a district near Kyiv with the lowest connection fee for storage, e.g. Obukhiv, Brovary, Vyshhorod or Fastiv district | See D.1 [6][30] |
+| Site | Kyiv oblast, rural area of Obukhiv or Fastiv district (south of Kyiv): lowest connection fee for storage and outside the areas occupied in 2022 | See D.1 and J [6][30][34] |
 | Grid connection | DSO: DTEK Kyiv Regional Electric Networks, 35 kV (voltage class 1) | [6][22] |
 | Main equipment | Battery containers (cells, racks, BMS, thermal management, fire suppression); bi-directional inverters (PCS); MV transformers; 35 kV switchgear; SCADA/EMS; commercial metering | NREL bottom-up model [1]; metering rules [26] |
 
@@ -102,7 +103,8 @@ reliability category III, UAH thousand per kW [6]:
 
 In most districts the two rates add up to the same UAH 3.053 thousand/kW. The six suburban
 districts with the lowest withdrawal rate are 1–25% more expensive for storage, so the site is
-placed outside them. Rates for 2027 are not yet published; NEURC sets them every year.
+placed outside them, in Obukhiv or Fastiv district (see J for the second reason). Rates for 2027
+are not yet published; NEURC sets them every year.
 
 ### D.2 What NREL's cost includes
 NREL splits the owner's overnight capital cost into ten subcomponents [1, Sec. 2.2].
@@ -241,11 +243,42 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 | 10 | NREL 2024 prices not escalated | About ±5% | NREL projects a real decline of ≈ 2.5% per year to 2035 [1], roughly offsetting US inflation over 2024–2026 |
 | 11 | Flexible connection: non-guaranteed capacity is paid at 30% of the rate, but the DSO's automation may limit charging or discharging [30] | Lower connection fee, curtailment risk | Not in the base case; option to test in 04 |
 
+## J. Environmental and social (E&S) screening
+Expected classification under the World Bank Environmental and Social Framework (ESF):
+**Moderate**. Precedent: the Bank's battery storage project for Ukrhydroenergo (P176114), where
+the environmental, social and overall risks are all rated Moderate [32].
+
+| Risk | ESF standard | Measure in this project | Basis |
+|---|---|---|---|
+| Fire (thermal runaway of battery cells) | ESS4 Community health and safety | Containers with built-in fire suppression (in CAPEX item 1); spacing between containers and distance to homes under fire regulations; emergency plan with the State Emergency Service; extra protection if close to homes | [1][32] |
+| Oil leaks from transformers | ESS3 Resource efficiency and pollution prevention | Oil containment under MV transformers | [32] |
+| Noise (cooling, inverters, construction) | ESS3, ESS4 | Rural site with distance to homes | [32] |
+| Worker safety, including air-raid alerts | ESS2 Labour and working conditions | Labour management plan; shelter access during air-raid alerts | [32] |
+| Unexploded ordnance (UXO) | ESS4 | Site outside the areas occupied in 2022 (communities in Vyshhorod, Bucha and Brovary districts [34]); UXO survey before construction | [34] |
+| Land | ESS5 Land acquisition and land use | Leased land, no resettlement; agricultural land may need re-zoning; leases of up to 49 years are common | [23][32] |
+| Environmental impact assessment (EIA, ОВД) | ESS1 Assessment of E&S risks | Screening needed: utility-scale storage may trigger an EIA depending on scale and location; an EIA then covers hazardous materials, fire safety and waste [23]. Study costs are inside NREL's soft costs [1] | [1][23] |
+| End-of-life batteries | ESS3 | Ukraine is drafting a law aligned with the EU Battery Regulation, including extended producer responsibility [33]; battery take-back to be written into the supply contract. ⚠️ Net-zero end-of-life value (H) remains an assumption | [33] |
+| Community | ESS10 Stakeholder engagement | Consultation with the local community before the land lease and permits | [32] |
+
+## K. Alternatives considered
+| Alternative | Decision | Reason | Basis |
+|---|---|---|---|
+| 1-hour battery (20 MW / 20 MWh) | Rejected | Cannot hold symmetric aFRR at full power for 1 hour: 2 × 20 MW × 1 h = 40 MWh | Section C |
+| 4-hour battery (20 MW / 80 MWh) | Not tested in Phase 1 | CAPEX 56% higher (NREL formula: USD 26.72 million against 17.08 million); longer evening peaks may add arbitrage revenue | [1] |
+| 110 kV connection to Ukrenergo | Rejected | Needs a high-voltage substation; 35 kV already carries the 330 A of a 20 MW plant | Section A, [1] |
+| Other battery chemistry (e.g. NMC) | Rejected | NREL's reference system and cost data are for LFP | [1] |
+| FCR instead of aFRR | Rejected | Ukrenergo's FCR need (99 MW) is fully contracted for 5 years from October 2025 | [35] |
+| Suburban districts (Boryspil, Irpin and others) | Rejected | Connection fee for storage 1–25% higher | Section D.1 |
+| Brovary or Vyshhorod district | Rejected | Parts were occupied in 2022 (UXO risk) | [34] |
+| Gas-engine CHP; hybrid BESS + CHP | Later phases | Phases 2 and 3 of the Concept Note | Concept Note |
+| No project | Counterfactual | Used in the economic analysis (05) | — |
+
 ## Revision log
 | Date | Change |
 |---|---|
 | 2026-11-21 | First version |
 | 2026-11-21 | Connection fee corrected to NEURC Res. No. 1356 (withdrawal plus release, in force from 1 Sep 2026): USD 0.34 million → 1.36 million; CAPEX USD 18.71 million → 19.73 million. Site moved out of six suburban districts. Indicative calendar added |
+| 2026-11-21 | Sections J (E&S screening) and K (alternatives considered) added; site narrowed to Obukhiv or Fastiv district |
 
 ## Sources
 1. NREL (Cole et al.) — Cost Projections for Utility-Scale Battery Storage: 2025 Update: https://docs.nrel.gov/docs/fy25osti/93281.pdf
@@ -279,3 +312,7 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 29. Forbes Ukraine — Ukrenergo announces first long-term ancillary-services auctions, Aug 6, 2024: https://forbes.ua/news/ukrenergo-ogolosilo-pershi-dovgostrokovi-auktsioni-zakupivli-dopomizhnikh-poslug-06082024-22854
 30. NEURC Resolution No. 1356 of Aug 11, 2026 — changes to the connection-fee methodology (withdrawal plus release; flexible connection): https://www.nerc.gov.ua/storage/app/uploads/public/6a7/c20/faa/6a7c20faa1604634270814.pdf
 31. Forbes Ukraine — new grid connection rules from Sep 1, 2026 (transitional rule for storage): https://forbes.ua/news/v-ukraini-sprostili-pravila-priednannya-do-elektromerezh-shcho-zminilos-01092026-41632
+32. World Bank — Concept Environmental and Social Review Summary, Improving Power System Resilience for European Power Grid Integration (P176114): https://documents1.worldbank.org/curated/en/382411616808322035/text/Concept-Environmental-and-Social-Review-Summary-ESRS-Improving-Power-System-Resilience-for-European-Power-Grid-Integration-P176114.txt
+33. Ministry of Economy of Ukraine — harmonisation with the EU Battery Regulation, draft law on batteries and waste batteries, Sep 18, 2026: https://me.gov.ua/News/Detail/ad05e765-24b4-4ad5-a6fd-ae0969232c7b
+34. Ukrinform — anniversary of Kyiv region's liberation: 15 communities in Vyshhorod, Bucha and Brovary districts were occupied, Apr 2, 2023: https://www.ukrinform.net/rubric-ato/3690552-anniversary-of-kyiv-regions-liberation-15-communities-used-to-be-under-russian-occupation.html
+35. Interfax-Ukraine — FCR auction: 99 MW on 5-year contracts: https://interfax.com.ua/news/economic/1014424.html
