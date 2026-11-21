@@ -1,6 +1,6 @@
 # Technical Basis — Ukraine Grid-Scale Battery Storage
 
-**Document 02** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21
+**Document 02** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21 · **Revised:** 2026-11-21 (connection fee rule, calendar)
 **Currency:** USD. NREL items in 2024 prices; Ukrainian items in 2026 prices, converted at the
 NBU official rate of 20 Nov 2026: 45.05 UAH/USD, 49.53 UAH/EUR [11].
 
@@ -8,21 +8,22 @@ NBU official rate of 20 Nov 2026: 45.05 UAH/USD, 49.53 UAH/EUR [11].
 | Item | Value |
 |---|---|
 | Asset | 20 MW / 40 MWh LFP battery (2-hour), Kyiv oblast, DSO connection at 35 kV |
-| CAPEX | **USD 18.71 million** (USD 468/kWh; USD 935/kW) |
-| OPEX | **USD 1.30 million per year** (6.9% of CAPEX) |
+| CAPEX | **USD 19.73 million** (USD 493/kWh; USD 986/kW) |
+| OPEX | **USD 1.32 million per year** (6.7% of CAPEX) |
 | Efficiency · life · availability | 85% round trip · 15 years · 97% |
 | Operating scenarios for revenue analysis (03) | A: arbitrage only · B: aFRR only · C: 10 MW aFRR + 10 MW arbitrage |
-| Construction | ~8 months from supplier selection to operation (DTEK precedent); year 0 in the model |
+| Calendar | Construction in 2027 (~8 months, DTEK precedent) = year 0; commercial operation from 1 Jan 2028 |
 
-The Concept Note's indicative CAPEX (≈ USD 17 million) is replaced by USD 18.71 million:
-physical protection and the grid connection fee are added; US sales tax is removed.
+The Concept Note's indicative CAPEX (≈ USD 17 million) is replaced by USD 19.73 million:
+physical protection and the grid connection fee (withdrawal plus release capacity) are added;
+US sales tax is removed.
 
 ## A. Project description
 | Item | Base case | Basis |
 |---|---|---|
 | Technology | LFP (lithium iron phosphate) battery in containers; reference product Fluence Gridstack | Used in DTEK's 200 MW / 400 MWh portfolio in Ukraine [4][5] |
 | Size | 20 MW / 40 MWh usable (2-hour) | DTEK's six sites are 20–50 MW, 2-hour [4] |
-| Site | Kyiv oblast, rural area of a district near Kyiv | Lowest connection rate in the oblast [6] |
+| Site | Kyiv oblast, rural area of a district near Kyiv with the lowest connection fee for storage, e.g. Obukhiv, Brovary, Vyshhorod or Fastiv district | See D.1 [6][30] |
 | Grid connection | DSO: DTEK Kyiv Regional Electric Networks, 35 kV (voltage class 1) | [6][22] |
 | Main equipment | Battery containers (cells, racks, BMS, thermal management, fire suppression); bi-directional inverters (PCS); MV transformers; 35 kV switchgear; SCADA/EMS; commercial metering | NREL bottom-up model [1]; metering rules [26] |
 
@@ -67,23 +68,41 @@ those hours may be free for arbitrage. This is modelled in 03.
 ### D.1 Cost estimate
 | # | Item | Basis | USD million | Share |
 |---|---|---|---|---|
-| 1 | Battery system and balance of plant: NREL overnight capital cost | Energy 241 USD/kWh × 40,000 kWh = 9.64; power 372 USD/kW × 20,000 kW = 7.44 [1] | 17.08 | 91.3% |
-| 2 | Less: US sales tax included in item 1 | 17 of 334 USD/kWh (5.1%) in NREL's breakdown, see D.2 [1] | −0.87 | −4.6% |
+| 1 | Battery system and balance of plant: NREL overnight capital cost | Energy 241 USD/kWh × 40,000 kWh = 9.64; power 372 USD/kW × 20,000 kW = 7.44 [1] | 17.08 | 86.6% |
+| 2 | Less: US sales tax included in item 1 | 17 of 334 USD/kWh (5.1%) in NREL's breakdown, see D.2 [1] | −0.87 | −4.4% |
 | 3 | Ukrainian import duty and VAT | Exempt or recoverable, see D.3 | 0.00 | 0.0% |
-| 4 | DSO connection fee | UAH 0.763 thousand/kW × 20,000 kW = UAH 15.26 million [6] | 0.34 | 1.8% |
-| 5 | Physical protection (level-2 proxy) | UAH 24.32 billion / ~250 objects ≈ UAH 97.3 million per object [12] | 2.16 | 11.5% |
-| | **Total CAPEX** | | **18.71** | **100%** |
-| | Per kWh / per kW | | 468 / 935 USD | |
+| 4 | DSO connection fee: withdrawal plus release capacity | UAH 3.053 thousand/kW × 20,000 kW = UAH 61.06 million, see table below [6][30] | 1.36 | 6.9% |
+| 5 | Physical protection (level-2 proxy) | UAH 24.32 billion / ~250 objects ≈ UAH 97.3 million per object [12] | 2.16 | 10.9% |
+| | **Total CAPEX** | | **19.73** | **100%** |
+| | Per kWh / per kW | | 493 / 986 USD | |
 
 $$\text{CAPEX}_{NREL} = 241\ \tfrac{\text{USD}}{\text{kWh}} \times 40{,}000\ \text{kWh} + 372\ \tfrac{\text{USD}}{\text{kW}} \times 20{,}000\ \text{kW} = \text{USD}\ 17.08\ \text{million}$$
 
 - **Contingency:** NREL includes about 2.1% (≈ USD 0.36 million) inside item 1 [1]. Cost overruns
   are tested with the CAPEX stress tests in 04, not with a separate contingency line.
-- **Connection fee:** NEURC rate for 2026 at 35 kV, rural area, reliability category III, in the
-  cheapest districts near Kyiv. Rates differ up to about 4× across the oblast [6].
+- **Connection fee:** since 1 Sep 2026 a storage facility pays the rate for withdrawal capacity
+  (charging) plus the rate for release capacity (discharging) [30]. The old rule, the average of
+  the two rates, applies only to storage commissioned before 1 Jan 2027 [31], so not to this
+  project. Withdrawal uses NEURC's rates for installations that consume electricity; release uses
+  the rates for installations that produce it [6][30].
 - **Physical protection:** by late 2025 practically all energy facilities had level-2 protection [12].
   Check: one transformer shelter costs UAH 120–130 million excl. VAT (≈ USD 2.7–2.9 million) [13].
   Stress test from the Concept Note: CAPEX × 2.
+
+**Connection rates for storage, 2026** — DTEK Kyiv Regional Electric Networks, 35 kV, rural area,
+reliability category III, UAH thousand per kW [6]:
+
+| District (DSO unit) | Withdrawal | Release | Sum = rate for storage |
+|---|---|---|---|
+| Obukhiv, Brovary, Vyshhorod, Fastiv and most other districts | 1.231–1.448 | 1.605–1.822 | **3.053** |
+| Borodianka, Yahotyn | 0.763 | 2.326–2.330 | 3.089–3.093 |
+| Kyiv-Sviatoshynskyi, Vasylkiv | 0.763 | 2.448–2.581 | 3.211–3.344 |
+| Boryspil | 0.763 | 2.824 | 3.587 |
+| Irpin | 0.763 | 3.053 | 3.816 |
+
+In most districts the two rates add up to the same UAH 3.053 thousand/kW. The six suburban
+districts with the lowest withdrawal rate are 1–25% more expensive for storage, so the site is
+placed outside them. Rates for 2027 are not yet published; NEURC sets them every year.
 
 ### D.2 What NREL's cost includes
 NREL splits the owner's overnight capital cost into ten subcomponents [1, Sec. 2.2].
@@ -111,8 +130,8 @@ What this means for the project:
   (item 4). Physical protection (item 5) is also added.
 - **Land:** not in the cost. NREL assumes a land lease [1, Table 3], so land goes to OPEX.
 - **US-specific items:** sales tax is removed (item 2). NREL prices also reflect US tariffs on
-  Chinese cells and a US manufacturing tax credit [1, Table 3]. The cross-check in D.4 shows the
-  net result for Ukraine is a higher, i.e. conservative, estimate.
+  Chinese cells and a US manufacturing tax credit [1, Table 3]. The cross-check in D.4 shows that
+  our estimate sits above the Ukrainian benchmarks.
 
 ### D.3 Import taxes
 | Equipment | Import duty | VAT | Basis |
@@ -129,21 +148,23 @@ USD 1.9 million would be tied up until recovered.
 |---|---|---|
 | DTEK–Fluence, 200 MW / 400 MWh (2025) | EUR 125 million (USD 146 million) invested [5] | 365 |
 | National Renewable Energy Action Plan to 2030 | 656 MW of storage, USD 502 million of investment [14]; 2-hour assumed | ≈ 383 |
-| **This study, excluding physical protection** | | **414** |
-| **This study, including physical protection** | | **468** |
+| **This study, excluding physical protection** | | **439** |
+| **This study, including physical protection** | | **493** |
 | KSE bachelor thesis (Hunko, 2026) | Assumed CAPEX [15] | 148 |
 
-Before protection, our estimate is 8–13% above both Ukrainian benchmarks, so it is conservative.
-The thesis assumption is 2.8 times lower and is not used.
+Before protection, our estimate is 15–20% above both Ukrainian benchmarks. Part of the gap is
+expected: one 20 MW site has less scale than DTEK's 200 MW portfolio, NREL reflects US costs, and
+the scope of the benchmark figures (connection, protection, development) is not published.
+The thesis assumption is 3 times lower and is not used.
 
 ## E. Operating cost (OPEX)
 | Item | Basis | USD million per year |
 |---|---|---|
 | O&M including augmentation | 4% × NREL CAPEX of USD 17.08 million [1][2] | 0.68 |
-| War and political-risk insurance | 2% × CAPEX of USD 18.71 million. MIGA and DFC charge about 2%; market benchmark 1–3% per year [17] | 0.37 |
+| War and political-risk insurance | 2% × CAPEX of USD 19.73 million. MIGA and DFC charge about 2%; market benchmark 1–3% per year [17] | 0.39 |
 | Network charges on net losses | 2,499 MWh × UAH 1,643.69/MWh, see E.1 | 0.09 |
 | Other: land lease, security, market fees, guarantees, administration | ⚠️ Estimate, not sourced | 0.15 |
-| **Total** | | **1.30** |
+| **Total** | | **1.32** |
 
 - **O&M:** NREL's 2024 edition used 2.5% [3]; the 2025 edition raised it to 4% [1][2]. We use
   4% because CAPEX comes from the same edition. If NREL's 4% is read as 4% of a 4-hour battery's
@@ -192,9 +213,14 @@ Concept Note, key risks).
 | Supplier selection → commercial operation | ~8 months (DTEK: January → September 2025) | [5] |
 | Construction | ~6 months (DTEK: March → August 2025) | [5] |
 | aFRR auction → service start | ~1.5 years (4th auction) | [28] |
-| **Model convention** | Year 0: construction, 100% of CAPEX. Years 1–15: operation | Assumption |
+| **Indicative calendar** | Development and connection agreement: H1 2027 · construction: H2 2027 · commercial operation: 1 Jan 2028 | Assumption |
+| **Model convention** | Year 0 = 2027: construction, 100% of CAPEX. Years 1–15 = 2028–2042: operation | Assumption |
 
-Equipment must be imported before 1 Jan 2029 to keep the tax exemption [7].
+Why the date matters:
+- equipment must be imported before 1 Jan 2029 to keep the tax exemption [7]; the calendar
+  leaves about one year of buffer;
+- a start after 1 Jan 2027 means the new connection-fee rule applies (D.1) [31];
+- hourly prices of 2025–2026 are used as a proxy for 2028 onwards (tested in 03).
 
 ## H. End of life
 Decommissioning cost is assumed equal to salvage value, so the net value in year 15 is zero.
@@ -205,7 +231,7 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 |---|---|---|---|
 | 1 | aFRR contracts pay in certain hours only | Revenue of scenarios B and C | Hours defined in 03 |
 | 2 | No new long-term aFRR auction announced | Contracted revenue may be unavailable | Concept Note risk; scenario A is the fallback |
-| 3 | Reliability category (II or III) and DSO hosting capacity | Connection fee and timing | Confirm through the DSO's technical conditions |
+| 3 | Reliability category (II or III), DSO hosting capacity, 2027 connection rates | Connection fee and timing | Confirm through the DSO's technical conditions |
 | 4 | O&M basis (2-hour or 4-hour cost) | +USD 0.39 million per year | Stress test in 04 |
 | 5 | "Other" OPEX not sourced | ±USD 0.15 million per year | Stress × 2 in 04 |
 | 6 | Physical protection cost | Base +USD 2.16 million | CAPEX × 2 stress (Concept Note) |
@@ -213,6 +239,13 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 | 8 | Insurance availability and terms | OPEX | Sensitivity in 04 |
 | 9 | aFRR duration assumption (1 hour) | Size of scenarios B and C | Confirm with Ukrenergo |
 | 10 | NREL 2024 prices not escalated | About ±5% | NREL projects a real decline of ≈ 2.5% per year to 2035 [1], roughly offsetting US inflation over 2024–2026 |
+| 11 | Flexible connection: non-guaranteed capacity is paid at 30% of the rate, but the DSO's automation may limit charging or discharging [30] | Lower connection fee, curtailment risk | Not in the base case; option to test in 04 |
+
+## Revision log
+| Date | Change |
+|---|---|
+| 2026-11-21 | First version |
+| 2026-11-21 | Connection fee corrected to NEURC Res. No. 1356 (withdrawal plus release, in force from 1 Sep 2026): USD 0.34 million → 1.36 million; CAPEX USD 18.71 million → 19.73 million. Site moved out of six suburban districts. Indicative calendar added |
 
 ## Sources
 1. NREL (Cole et al.) — Cost Projections for Utility-Scale Battery Storage: 2025 Update: https://docs.nrel.gov/docs/fy25osti/93281.pdf
@@ -244,3 +277,5 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 27. Liga:Zakon — special ancillary-services auctions, key facts (NEURC Res. No. 1172), Jul 9, 2024: https://biz.ligazakon.net/analitycs/228985_zapusk-spetsalnikh-auktsonv-na-dopomzhn-poslugi-klyuchov-fakti
 28. Interfax-Ukraine — 4th aFRR auction, final results, Jul 2, 2025: https://interfax.com.ua/news/general/1084652.html
 29. Forbes Ukraine — Ukrenergo announces first long-term ancillary-services auctions, Aug 6, 2024: https://forbes.ua/news/ukrenergo-ogolosilo-pershi-dovgostrokovi-auktsioni-zakupivli-dopomizhnikh-poslug-06082024-22854
+30. NEURC Resolution No. 1356 of Aug 11, 2026 — changes to the connection-fee methodology (withdrawal plus release; flexible connection): https://www.nerc.gov.ua/storage/app/uploads/public/6a7/c20/faa/6a7c20faa1604634270814.pdf
+31. Forbes Ukraine — new grid connection rules from Sep 1, 2026 (transitional rule for storage): https://forbes.ua/news/v-ukraini-sprostili-pravila-priednannya-do-elektromerezh-shcho-zminilos-01092026-41632
