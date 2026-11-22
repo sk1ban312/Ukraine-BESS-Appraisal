@@ -35,6 +35,12 @@ $$I = \frac{P}{\sqrt{3}\,V} = \frac{20 \times 10^{6}\ \text{W}}{\sqrt{3} \times 
 At 20 kV the current would be ≈ 577 A. 35 kV also keeps the project in distribution
 class 1: UAH 621.52/MWh, against UAH 2,175.33/MWh for class 2 at the same DSO [22].
 
+20 MW in both directions is at the upper end for 35 kV. The project therefore assumes its own
+cell on the 35 kV busbar of a 110/35 kV substation, not a tap on an existing feeder (engineering
+judgement, to be confirmed in the DSO's technical conditions). A dedicated cell also keeps the
+battery off the feeders that are switched off under outage schedules. The DSO may instead
+require 110 kV (see K).
+
 ## B. Operating parameters
 | Parameter | Value | Basis |
 |---|---|---|
@@ -93,18 +99,20 @@ $$\text{CAPEX}_{NREL} = 241\ \tfrac{\text{USD}}{\text{kWh}} \times 40{,}000\ \te
 **Connection rates for storage, 2026** — DTEK Kyiv Regional Electric Networks, 35 kV, rural area,
 reliability category III, UAH thousand per kW [6]:
 
-| District (DSO unit) | Withdrawal | Release | Sum = rate for storage |
+| District (DSO unit) | Release (production rate) | Withdrawal (consumption rate) | Sum = rate for storage |
 |---|---|---|---|
-| Obukhiv, Brovary, Vyshhorod, Fastiv and most other districts | 1.231–1.448 | 1.605–1.822 | **3.053** |
+| Obukhiv, Fastiv and most other districts | 1.231–1.448 | 1.605–1.822 | **3.053** |
 | Borodianka, Yahotyn | 0.763 | 2.326–2.330 | 3.089–3.093 |
 | Kyiv-Sviatoshynskyi, Vasylkiv | 0.763 | 2.448–2.581 | 3.211–3.344 |
 | Boryspil | 0.763 | 2.824 | 3.587 |
 | Irpin | 0.763 | 3.053 | 3.816 |
 
 In most districts the two rates add up to the same UAH 3.053 thousand/kW. The six suburban
-districts with the lowest withdrawal rate are 1–25% more expensive for storage, so the site is
-placed outside them, in Obukhiv or Fastiv district (see J for the second reason). Rates for 2027
-are not yet published; NEURC sets them every year.
+districts with the lowest release rate (cheap for generators where load is high) are 1–25% more
+expensive for storage, so the site is placed outside them, in Obukhiv or Fastiv district (see J
+for the second reason). Which table is release and which is withdrawal was read from the PDF's
+flattened text and follows the logic of locational rates; the sum, which is what storage pays,
+does not depend on it. Rates for 2027 are not yet published; NEURC sets them every year.
 
 ### D.2 What NREL's cost includes
 NREL splits the owner's overnight capital cost into ten subcomponents [1, Sec. 2.2].
@@ -126,7 +134,9 @@ total = 334; sales tax = 5.8% × 285 = 16.5; profit = 5% × 285 = 14.3.
 
 What this means for the project:
 - **Already included, not added again:** the line to the grid (NREL includes a 2.4-mile line),
-  the on-site substation, design and permitting [1, Table 3].
+  the on-site substation, design and permitting [1, Table 3]. NREL's substation steps medium
+  voltage up to high voltage; at 35 kV the project does not need that step, so this part of
+  NREL's cost is probably an overestimate (not quantified, see risk 12).
 - **Not included, added separately:** network upgrades, which NREL excludes ("Cost of
   interconnection upgrades are not included") [1]. In Ukraine this is the DSO connection fee
   (item 4). Physical protection (item 5) is also added.
@@ -242,6 +252,10 @@ Decommissioning cost is assumed equal to salvage value, so the net value in year
 | 9 | aFRR duration assumption (1 hour) | Size of scenarios B and C | Confirm with Ukrenergo |
 | 10 | NREL 2024 prices not escalated | About ±5% | NREL projects a real decline of ≈ 2.5% per year to 2035 [1], roughly offsetting US inflation over 2024–2026 |
 | 11 | Flexible connection: non-guaranteed capacity is paid at 30% of the rate, but the DSO's automation may limit charging or discharging [30] | Lower connection fee, curtailment risk | Not in the base case; option to test in 04 |
+| 12 | NREL includes an MV-to-HV substation that a 35 kV connection does not need; a 20 MW site has less scale than NREL's 60 MW reference | The first lowers CAPEX, the second raises it; neither is quantified | CAPEX ±20% sensitivity in 04 |
+| 13 | Communication and cyber security of the AGC link and remote control | Availability for aFRR | Redundant channels; cyber requirements in the supply contract |
+| 14 | Physical protection against fire safety | Barriers can block cooling and fire-fighting access | Protection designed together with the fire safety design |
+| 15 | aFRR cycling in scenarios B and C may exceed 1 cycle per day | Warranty and degradation | Checked in 03 |
 
 ## J. Environmental and social (E&S) screening
 Expected classification under the World Bank Environmental and Social Framework (ESF):
@@ -265,7 +279,7 @@ the environmental, social and overall risks are all rated Moderate [32].
 |---|---|---|---|
 | 1-hour battery (20 MW / 20 MWh) | Rejected | Cannot hold symmetric aFRR at full power for 1 hour: 2 × 20 MW × 1 h = 40 MWh | Section C |
 | 4-hour battery (20 MW / 80 MWh) | Not tested in Phase 1 | CAPEX 56% higher (NREL formula: USD 26.72 million against 17.08 million); longer evening peaks may add arbitrage revenue | [1] |
-| 110 kV connection to Ukrenergo | Rejected | Needs a high-voltage substation; 35 kV already carries the 330 A of a 20 MW plant | Section A, [1] |
+| 110 kV connection | Alternative; the DSO decides in its technical conditions | Connection fee about half: UAH 1.438 against 3.053 thousand/kW, i.e. USD 0.64 million against 1.36 million [6]. Needs a 110 kV substation: NREL's cost already includes one, but for 20 MW it costs more per kW than in NREL's 60 MW reference. 35 kV stays the base case | [1][6] |
 | Other battery chemistry (e.g. NMC) | Rejected | NREL's reference system and cost data are for LFP | [1] |
 | FCR instead of aFRR | Rejected | Ukrenergo's FCR need (99 MW) is fully contracted for 5 years from October 2025 | [35] |
 | Suburban districts (Boryspil, Irpin and others) | Rejected | Connection fee for storage 1–25% higher | Section D.1 |
@@ -279,6 +293,7 @@ the environmental, social and overall risks are all rated Moderate [32].
 | 2026-11-21 | First version |
 | 2026-11-21 | Connection fee corrected to NEURC Res. No. 1356 (withdrawal plus release, in force from 1 Sep 2026): USD 0.34 million → 1.36 million; CAPEX USD 18.71 million → 19.73 million. Site moved out of six suburban districts. Indicative calendar added |
 | 2026-11-21 | Sections J (E&S screening) and K (alternatives considered) added; site narrowed to Obukhiv or Fastiv district |
+| 2026-11-21 | Engineering review: release and withdrawal labels corrected (sum unchanged); 110 kV kept as an alternative with about half the fee; dedicated 35 kV cell assumed; risks 12–15 added |
 
 ## Sources
 1. NREL (Cole et al.) — Cost Projections for Utility-Scale Battery Storage: 2025 Update: https://docs.nrel.gov/docs/fy25osti/93281.pdf
