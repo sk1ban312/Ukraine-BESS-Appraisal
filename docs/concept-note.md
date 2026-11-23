@@ -112,6 +112,7 @@ IFC/EBRD debt, RAMP UP risk mitigation, MIGA political-risk insurance.
 | 2026-11-21 | DSCR threshold sourced (criterion B), before the financial calculation |
 | 2026-11-21 | Financial analysis: the NREL case fails criterion A in every combination. A market-price CAPEX case (BNEF 2025) was added afterwards as a sensitivity; the base case is unchanged |
 | 2026-11-22 | Market-price case rebuilt item by item, because BNEF's turnkey price excludes installation: USD 289/kWh. It passes criterion A only with installation at large-tender prices; at the DTEK benchmark (USD 365/kWh) it fails. The decision becomes conditional on EPC bids: all-in CAPEX ≤ USD 324/kWh (scenario C, IFI-supported debt) |
+| 2026-11-22 | Economic analysis (scenario C, ENPV at 6%): NREL −USD 5.7 million; market DC block with NREL installation (≈ DTEK) +2.5 million; itemized market +7.3 million; switching value 407 USD/kWh. Decision read strictly from matrix D by all-in CAPEX: ≤ 294 Go (commercial debt); 294–324 Go with IFI support; > 324 No-go (324–407: worth it for Ukraine but not financially viable) |
 
 ## Sources
 1. Komersant — outage schedules, Oct 2025: https://komersant.ua/en/ukrenerho-opryliudnylo-hrafiky-vidkliuchen-na-24-zhovtnia-hodyn-zi-svitlom-bude-bilshe

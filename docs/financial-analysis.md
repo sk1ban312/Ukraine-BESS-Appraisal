@@ -1,6 +1,6 @@
 # Financial Analysis — Ukraine Grid-Scale Battery Storage
 
-**Document 04** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21 · **Revised:** 2026-11-22 (itemized market case; break-even on the market cost structure)
+**Document 04** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21 · **Revised:** 2026-11-22 (itemized market case; break-even on the market cost structure; decision read strictly from matrix D)
 **Currency:** nominal USD · **Model:** `models/financial-model.xlsx` (selectors for scenario, financing and CAPEX case) · `scripts/financial_model.py`
 
 ## Summary
@@ -22,9 +22,10 @@
 - **Additionality:** in the market case IFI-supported debt (longer tenor) lifts the equity IRR of
   scenario C from 15.6% to 22.8%. In the NREL case debt destroys value (negative leverage):
   the project earns about 1.5% a year, less than the loan costs.
-- **Decision (Concept Note, matrix D):** NREL case — No-go. Market case — **conditional Go with
-  IFI support**: only if EPC bids confirm an all-in CAPEX of at most USD 324/kWh, and subject to
-  the economic test (05).
+- **Decision (Concept Note, matrix D), by the all-in CAPEX that EPC bids confirm (scenario C):**
+  up to USD 294/kWh — Go, commercial debt is enough (the itemized market case, 289, is just
+  inside); 294–324 — Go with IFI support; above 324 — No-go. NREL case — No-go. The economic
+  test is in document 05.
 
 ## 1. Method
 - Nominal USD. Year 0 = 2027: construction, 100% of CAPEX. Years 1–15 = 2028–2042: operation.
@@ -136,7 +137,7 @@ installation 367 (279); DTEK–Fluence 2025 ≈ 365; NREL case 493.
 | A. Equity IRR ≥ 15% | Fails in all combinations | Itemized: C · IFI 22.8%, B · IFI 21.2%, C · commercial 15.6%, B · commercial 15.1%. With NREL installation costs: fails (best 9.4%) |
 | B. Merchant share ≤ 60% | A fails (100%); B (0%) and C (44%) pass | Same |
 | B. DSCR | Debt sized to the target (1.20–2.0) | Same |
-| D. Decision matrix | No-go | Conditional Go with IFI support: EPC bids must confirm all-in CAPEX ≤ USD 324/kWh; ENPV ≥ 0 (document 05) |
+| D. Decision matrix | No-go | By all-in CAPEX: ≤ 294 Go (commercial debt); 294–324 Go with IFI support; > 324 No-go. Itemized case (289): Go, with a margin of 0.6 points. ENPV in document 05 |
 | E. Robustness | Worse price period used; red flag not triggered (document 03) | Fragile: fails with aFRR at 12 hours, installation at NREL cost or CAPEX × 2 |
 
 ## 8. Limitations
