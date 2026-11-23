@@ -1,6 +1,6 @@
 # Technical Basis — Ukraine Grid-Scale Battery Storage
 
-**Document 02** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21 · **Revised:** 2026-11-21 (connection fee rule, calendar)
+**Document 02** · **Stage:** Phase 1 (BESS) · **Fixed:** 2026-11-21 · **Revised:** 2026-11-22 (connection fee rule, calendar, itemized market-price case)
 **Currency:** USD. NREL items in 2024 prices; Ukrainian items in 2026 prices, converted at the
 NBU official rate of 20 Nov 2026: 45.05 UAH/USD, 49.53 UAH/EUR [11].
 
@@ -8,7 +8,8 @@ NBU official rate of 20 Nov 2026: 45.05 UAH/USD, 49.53 UAH/EUR [11].
 | Item | Value |
 |---|---|
 | Asset | 20 MW / 40 MWh LFP battery (2-hour), Kyiv oblast, DSO connection at 35 kV |
-| CAPEX | **USD 19.73 million** (USD 493/kWh; USD 986/kW) |
+| CAPEX | **USD 19.73 million** (USD 493/kWh; USD 986/kW) — base case, NREL |
+| CAPEX, market-price case | USD 11.57 million (USD 289/kWh), itemized, see D.5 |
 | OPEX | **USD 1.32 million per year** (6.7% of CAPEX) |
 | Efficiency · life · availability | 85% round trip · 15 years · 97% |
 | Operating scenarios for revenue analysis (03) | A: arbitrage only · B: aFRR only · C: 10 MW aFRR + 10 MW arbitrage |
@@ -169,6 +170,57 @@ expected: one 20 MW site has less scale than DTEK's 200 MW portfolio, NREL refle
 the scope of the benchmark figures (connection, protection, development) is not published.
 The thesis assumption is 3 times lower and is not used.
 
+### D.5 Market-price case (sensitivity)
+NREL reflects US costs in 2024. A purchase for Ukraine in 2027 is closer to the export prices of
+Chinese suppliers, which fell sharply in 2025. The case is built item by item, like D.1.
+
+**Why a single benchmark is not used.** BNEF's turnkey price (Europe 2025: USD 177/kWh [36])
+covers only the battery containers (DC block), the inverter (PCS) and the energy management
+system (EMS). It excludes installation and construction (EPC: engineering, procurement and
+construction) and grid connection [38]. The first version of this case treated it as the whole
+system and so left out installation (see revision log).
+
+| # | Item | Basis | USD million |
+|---|---|---|---|
+| 1 | Battery containers (DC block): cells, racks, BMS, cooling, fire suppression | Free-on-board price in China of 2-hour DC-side systems for Europe, mid-2026: USD 71–89/kWh [37]; middle value 80 × 40,000 kWh | 3.20 |
+| 2 | Freight and insurance to site | 5% of item 1 ⚠️ assumption | 0.16 |
+| 3 | Inverter (PCS) and EMS | About 10% of the USD 75/kWh core equipment of a 4-hour system [39] → USD 30/kW × 20,000 kW | 0.60 |
+| 4 | EPC: transformers, switchgear, cables, civil works, installation, commissioning | USD 50/kWh for 4-hour projects outside China and the US (tenders in Saudi Arabia, Italy, India) [39], converted to 2 hours below | 3.37 |
+| 5 | Development, owner's costs and contingency | 10% of items 1–4 ⚠️ assumption | 0.73 |
+| 6 | DSO connection fee | As in D.1 | 1.36 |
+| 7 | Physical protection | As in D.1 | 2.16 |
+| 8 | Import duty and VAT | As in D.3 | 0.00 |
+| | **Total CAPEX, market case** | | **11.57 (289 USD/kWh)** |
+
+**EPC for 2 hours.** Ember's figure is per kWh of a 4-hour project. In NREL's cost, everything
+except battery cabinets and inverter is 31 USD/kWh (241 − 210) plus 268 USD/kW (372 − 4 × 26),
+i.e. 98 USD/kWh at 4 hours. EPC is assumed to split the same way:
+
+$$EPC = 50 \times \frac{31 \times 40{,}000 + 268 \times 20{,}000}{98} \approx \text{USD}\ 3.37\ \text{million}$$
+
+**Range and cross-check** (all-in CAPEX, USD/kWh):
+
+| Estimate | USD/kWh |
+|---|---|
+| Market case, DC block at 71–89 | 279–300 |
+| Market DC block (items 1–2), all other items at NREL's US cost | 358–377 |
+| DTEK–Fluence, Ukraine 2025 (D.4) | 365 |
+| NREL base case (D.1) | 493 |
+
+The market case rests on installation prices from very large tenders where land is provided.
+Ember notes that equipment can cost USD 100/kWh or more where tariffs are higher or standards
+stricter, and that smaller projects may not get comparable quotes [39]. For one 20 MW site the
+market case is therefore the optimistic end; the only Ukrainian benchmark (DTEK) sits next to the
+variant with NREL installation costs. China's export tax rebate on batteries falls from 13% to 6%
+and reaches zero in January 2027, which raises prices somewhat [37].
+
+In this case O&M is 4% of items 1–5 (USD 0.32 million per year) and insurance is 2% of CAPEX
+(USD 0.23 million); total OPEX is USD 0.80 million per year.
+
+**Status:** sensitivity case. The base case stays NREL, following the Concept Note principle of
+the conservative choice when sources disagree. The financial analysis (04) reports both cases and
+the break-even price; the final CAPEX must be confirmed by EPC bids.
+
 ## E. Operating cost (OPEX)
 | Item | Basis | USD million per year |
 |---|---|---|
@@ -294,6 +346,8 @@ the environmental, social and overall risks are all rated Moderate [32].
 | 2026-11-21 | Connection fee corrected to NEURC Res. No. 1356 (withdrawal plus release, in force from 1 Sep 2026): USD 0.34 million → 1.36 million; CAPEX USD 18.71 million → 19.73 million. Site moved out of six suburban districts. Indicative calendar added |
 | 2026-11-21 | Sections J (E&S screening) and K (alternatives considered) added; site narrowed to Obukhiv or Fastiv district |
 | 2026-11-21 | Engineering review: release and withdrawal labels corrected (sum unchanged); 110 kV kept as an alternative with about half the fee; dedicated 35 kV cell assumed; risks 12–15 added |
+| 2026-11-21 | Market-price case (D.5) added as a sensitivity after the financial analysis showed the NREL case fails; base case unchanged |
+| 2026-11-22 | D.5 rebuilt item by item. BNEF's turnkey price excludes installation (EPC) and grid connection, which the first version missed. Market case USD 11.77 million (294/kWh) → 11.57 million (289/kWh); cross-check with NREL installation costs: 358–377/kWh |
 
 ## Sources
 1. NREL (Cole et al.) — Cost Projections for Utility-Scale Battery Storage: 2025 Update: https://docs.nrel.gov/docs/fy25osti/93281.pdf
@@ -331,3 +385,7 @@ the environmental, social and overall risks are all rated Moderate [32].
 33. Ministry of Economy of Ukraine — harmonisation with the EU Battery Regulation, draft law on batteries and waste batteries, Sep 18, 2026: https://me.gov.ua/News/Detail/ad05e765-24b4-4ad5-a6fd-ae0969232c7b
 34. Ukrinform — anniversary of Kyiv region's liberation: 15 communities in Vyshhorod, Bucha and Brovary districts were occupied, Apr 2, 2023: https://www.ukrinform.net/rubric-ato/3690552-anniversary-of-kyiv-regions-liberation-15-communities-used-to-be-under-russian-occupation.html
 35. Interfax-Ukraine — FCR auction: 99 MW on 5-year contracts: https://interfax.com.ua/news/economic/1014424.html
+36. Energy-Storage.news — BNEF and Ember: battery storage system prices continue to fall sharply, Dec 16, 2025: https://www.energy-storage.news/battery-storage-system-prices-continue-to-fall-sharply-bnef-and-ember-reports-find/
+37. ESS News — Chinese export tax rebate cuts to raise European BESS costs, Jun 18, 2026: https://www.ess-news.com/2026/06/18/chinese-export-tax-rebate-cuts-to-raise-european-bess-costs/
+38. Energy-Storage.news — Behind the numbers: BNEF finds 40% year-on-year drop in BESS costs (turnkey = DC block, PCS and EMS, excluding EPC and grid connection): https://www.energy-storage.news/behind-the-numbers-bnef-finds-40-year-on-year-drop-in-bess-costs
+39. Ember — How cheap is battery storage? All-in BESS capex of USD 125/kWh as of October 2025: https://ember-energy.org/latest-insights/how-cheap-is-battery-storage/

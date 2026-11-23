@@ -1,6 +1,6 @@
 # Concept Note — Ukraine Grid-Scale Battery Storage
 
-**Stage:** Phase 1 (BESS) · **Criteria fixed:** 2026-11-17, before any revenue or financial calculation (DSCR threshold pending)
+**Stage:** Phase 1 (BESS) · **Criteria fixed:** 2026-11-17, before any revenue or financial calculation (DSCR threshold sourced 2026-11-21, before the financial calculation)
 
 ## 1. Context
 - Russian attacks on generation and grid assets cause scheduled outages across
@@ -65,7 +65,7 @@ IFC/EBRD debt, RAMP UP risk mitigation, MIGA political-risk insurance.
 | Metric | Threshold | Basis |
 |---|---|---|
 | Merchant (uncontracted) revenue share | ≤ 60% | Lenders surveyed mostly accept up to 41–60% [11] |
-| DSCR | Reported; threshold to be sourced before 04 | — |
+| DSCR | ≥ 1.20x for contracted revenue, ≥ 2.0x for merchant revenue, weighted by revenue share | Fitch [15]; NREL ATB 2024: DSCR 2.0 for battery storage [16] |
 
 **C. Economic — is it worth it for Ukraine?**
 | Metric | Threshold | Basis |
@@ -107,6 +107,11 @@ IFC/EBRD debt, RAMP UP risk mitigation, MIGA political-risk insurance.
 | 2026-11-16 | Scope: Phase 1 = BESS; CHP and hybrid moved to later phases |
 | 2026-11-16 | Criteria redefined: payback screen replaced by equity IRR, merchant share and ENPV with sourced thresholds |
 | 2026-11-17 | Concept note committed; criteria frozen before any revenue or financial calculation |
+| 2026-11-21 | Technical basis fixed: CAPEX USD 19.73 million (NREL), OPEX USD 1.32 million a year; connection fee per NEURC Res. No. 1356 |
+| 2026-11-21 | Revenue analysis: scenarios A (arbitrage), B (aFRR), C (split); 2025 is the worse price period |
+| 2026-11-21 | DSCR threshold sourced (criterion B), before the financial calculation |
+| 2026-11-21 | Financial analysis: the NREL case fails criterion A in every combination. A market-price CAPEX case (BNEF 2025) was added afterwards as a sensitivity; the base case is unchanged |
+| 2026-11-22 | Market-price case rebuilt item by item, because BNEF's turnkey price excludes installation: USD 289/kWh. It passes criterion A only with installation at large-tender prices; at the DTEK benchmark (USD 365/kWh) it fails. The decision becomes conditional on EPC bids: all-in CAPEX ≤ USD 324/kWh (scenario C, IFI-supported debt) |
 
 ## Sources
 1. Komersant — outage schedules, Oct 2025: https://komersant.ua/en/ukrenerho-opryliudnylo-hrafiky-vidkliuchen-na-24-zhovtnia-hodyn-zi-svitlom-bude-bilshe
@@ -123,3 +128,5 @@ IFC/EBRD debt, RAMP UP risk mitigation, MIGA political-risk insurance.
 12. World Bank — Discounting Costs and Benefits in Economic Analysis (2016): https://documents1.worldbank.org/curated/en/099610503022315638/pdf/IDU02e978a2a023f704c140bb1b082595e67e593.pdf
 13. AmCham Ukraine — Legal and regulatory guide for RE and storage, Jul 2026: https://chamber.ua/wp-content/uploads/2026/07/Guide-on-Legal-and-Regulatory-Framework-for-Renewable-Energy-and-Energy-Storage-Projects-in-Ukraine.pdf
 14. Hunko, M. (2026). Resilient Energy Infrastructure in Wartime (KSE BA thesis): https://kse.ua/wp-content/uploads/2026/07/diploma-main-doc-hunko.pdf
+15. ESMAP / IFC — Renewable Energy Project Finance, Fitch Ratings (2012), slide 13: https://esmap.org/sites/esmap.org/files/ESMAP_IFC_RE_Training_World_Bank_Fitch.pdf
+16. NREL ATB 2024 — Financial Cases and Methods: https://atb.nrel.gov/electricity/2024/financial_cases_&_methods
