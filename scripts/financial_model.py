@@ -43,12 +43,16 @@ def run(scen, fin, **over):
     merchant = arb / (arb + afrr) if arb + afrr else 1.0
     fom = p.get('fom_abs', p['fom_rate'] * p['nrel'])
     opex = (fom + p['network'] + p['other'] * p.get('other_mult', 1.0)) * esc + p['ins_rate'] * capex
-    ebitda = rev - opex; dep = capex / n
+    ebitda = rev - opex
+    capex = capex - p.get("grant", 0.0)   # capital grant: cuts the amount financed and depreciated; insurance stays on the gross cost
+    dep = capex / n
     unlev_tax = np.maximum(0, ebitda - dep) * p['tax']           # simple: no loss carry-forward for sizing
     cfads_sizing = ebitda - unlev_tax
-    dscr_t = p['dscr_contract'] * (1 - merchant) + p['dscr_merchant'] * merchant
+    K = p.get('contract_years', p['life'])   # years in which lenders count aFRR as contracted (base: whole life)
+    m_t = np.where(t <= K, merchant, 1.0)
+    dscr_v = p['dscr_contract'] * (1 - m_t) + p['dscr_merchant'] * m_t; dscr_t = dscr_v[0]
     r, T = f['rate'], f['tenor']
-    debt_dscr = max(0.0, -npf.pv(r, T, cfads_sizing[:T].min() / dscr_t))
+    debt_dscr = max(0.0, -npf.pv(r, T, (cfads_sizing[:T] / dscr_v[:T]).min()))
     debt = min(p['max_gear'] * capex, debt_dscr)
     pmt = -npf.pmt(r, T, debt) if debt > 0 else 0.0
     bal = debt; interest = np.zeros(n); principal = np.zeros(n)

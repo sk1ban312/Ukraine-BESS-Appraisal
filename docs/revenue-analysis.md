@@ -41,8 +41,9 @@ $$R_{day} = E \times \left(P_{discharge} - \frac{P_{charge}}{\eta}\right), \qqua
 | Ceiling (perfect foresight) | 2 cheapest and 2 most expensive hours of the day; no trade if the margin is negative | Upper bound |
 | Realistic (base case) | Hours chosen from the average price profile of the previous 28 days, charge before discharge, then applied to the day's actual prices; trades even when the margin turns out negative | Used in the financial model |
 
-The realistic strategy most often charges at 13:00–14:00 (solar surplus) and discharges at
-21:00–22:00; in winter it charges at 04:00–05:00 and discharges at 18:00–19:00.
+The realistic strategy most often charges at 12:00–14:00 (solar surplus) and discharges at
+20:00–22:00; in winter it charges at 03:00–05:00 and discharges at 17:00–19:00. Market hours are
+numbered 1 to 24, so hour 13 is 12:00–13:00 (clock times corrected on 2026-11-23).
 
 ### 2.2 aFRR availability payment (scenarios B and C)
 
